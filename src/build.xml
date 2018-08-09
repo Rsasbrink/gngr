@@ -1,6 +1,19 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <!-- Optional top level build file. You can also use the Platform_Core/build.xml directly -->
-<project basedir="." default="build" name="gngr">
+<project basedir="." default="build" name="gngr" xmlns:sonar="antlib:org.sonar.ant">
+  <!-- Define the SonarQube global properties (the most usual way is to pass these properties via the command line) -->
+  <property name="sonar.host.url" value="http://localhost:9000" />
+
+
+
+  <property name="sonar.projectKey" value="org.sonarqube:sonarqube-scanner-ant" />
+  <property name="sonar.projectName" value="Example of SonarQube Scanner for Ant Usage" />
+  <property name="sonar.projectVersion" value="1.0" />
+  <property name="sonar.language" value="java" />
+  <property name="sonar.sources" value="." />
+  <property name="sonar.binaries" value="target" />
+  <property name="sonar.sourceEncoding" value="UTF-8" />
+
   <target name="build">
     <subant target="">
       <fileset dir="." includes="*/build.xml"/>
@@ -18,4 +31,15 @@
       <fileset dir="." includes="Platform_Core/build.xml"/>
     </subant>
   </target>
+
+  <target name="sonar">
+    <taskdef uri="antlib:org.sonar.ant" resource="org/sonar/ant/antlib.xml">
+      <!-- Update the following line, or put the "sonar-ant-task-*.jar" file in your "$HOME/.ant/lib" folder -->
+      <classpath path="sonarqube-ant-task-2.5.jar" />
+    </taskdef>
+
+    <!-- Execute SonarQube Scanner for Ant Analysis -->
+    <sonar:sonar />
+  </target>
+
 </project>
