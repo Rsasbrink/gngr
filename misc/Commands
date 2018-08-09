@@ -1,0 +1,1 @@
+sonar-scanner -Dsonar.projectKey=gngr -Dsonar.gitlab.commit_sha=$CI_BUILD_REF -Dsonar.gitlab.ref_name=$CI_BUILD_REF_NAME -Dsonar.sources=. -Dsonar.java.binaries=.
