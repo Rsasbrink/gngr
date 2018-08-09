@@ -50,7 +50,6 @@ import java.util.Properties;
 import java.util.concurrent.TimeUnit;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import sonar.java.binaries;
 import javax.net.ssl.SSLSocketFactory;
 import javax.swing.JOptionPane;
 import javax.swing.UIManager;
